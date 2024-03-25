@@ -6,10 +6,10 @@ import LayoutSidebar from '~/components/Layouts/Sidebar/LayoutSidebar.vue';
 <template>
   <div id="app">
     <LayoutSidebar></LayoutSidebar>
-      <div id="main">
-          <LayoutHeader></LayoutHeader>
-          <slot/>
-          <LayoutFooter></LayoutFooter>
-      </div>
+    <div id="main">
+      <LayoutHeader></LayoutHeader>
+      <slot />
+      <LayoutFooter></LayoutFooter>
+    </div>
   </div>
 </template>
