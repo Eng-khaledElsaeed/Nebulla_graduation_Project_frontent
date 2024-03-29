@@ -1,14 +1,17 @@
 <script lang="ts" setup>
-import LayoutHeader from '~/components/Layouts/LayoutHeader.vue';
-import LayoutFooter from '~/components/Layouts/LayoutFooter.vue';
-import LayoutSidebar from '~/components/Layouts/Sidebar/LayoutSidebar.vue';
+import LayoutSidebar from '~~/components/Layouts/Sidebar/LayoutSidebar.vue';
+import VerticalHeader from '~~/components/Layouts/VerticalHeader.vue';
+import LayoutFooter from '~~/components/Layouts/LayoutFooter.vue';
+
 </script>
 <template>
   <div id="app">
     <LayoutSidebar></LayoutSidebar>
-    <div id="main">
-      <LayoutHeader></LayoutHeader>
-      <slot />
+    <div id="main" class="layout-navbar navbar-fixed">
+      <VerticalHeader></VerticalHeader>
+      <div id="main-content">
+        <slot/>
+      </div>
       <LayoutFooter></LayoutFooter>
     </div>
   </div>

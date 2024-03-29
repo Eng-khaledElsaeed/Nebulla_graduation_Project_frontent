@@ -1,13 +1,13 @@
 {
-  "name": "nuxt-app",
+  "name": "Nebulla",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "node .output/server/index.mjs",
+    "postinstall": "nuxi prepare",
+    "generate": "nuxi generate"
   },
   "dependencies": {
     "@nuxtjs/color-mode": "^3.3.2",

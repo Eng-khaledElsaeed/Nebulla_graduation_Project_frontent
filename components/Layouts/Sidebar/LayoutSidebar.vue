@@ -81,7 +81,12 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
       <div class="sidebar-header">
         <div class="d-flex justify-content-between">
           <div class="logo">
-            <nuxt-link to="/"><img src="~/assets/images/logo/logo.png" alt="Logo"></nuxt-link>
+            <nuxt-link to="/">
+              <div class="logo-container">
+                <img src="~/assets/images/logo/logo.png" alt="Logo">
+                <p>Nebulla</p>
+              </div>
+            </nuxt-link>
           </div>
           <Dark />
           <div class="sidebar-toggler x">
@@ -91,13 +96,14 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
           </div>
         </div>
       </div>
+
       <div class="sidebar-menu">
         <ul class="menu">
           <template v-for="item in store.sidebarItems">
             <li v-if="item.isTitle" class="sidebar-title" :key="item.key">
               {{ item.name }}
             </li>
-            <sidebar-item v-else :item="item"></sidebar-item>
+            <SidebarItem v-else :item="item"></SidebarItem>
           </template>
         </ul>
       </div>
