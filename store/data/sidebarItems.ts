@@ -7,42 +7,84 @@ export default [
       "name": "Master the Art of Small Talk",
       "url": "/43445456",
       "icon": "menu-up"
-  },
+    },
+
    {
-      "name": "Dashboard",
-      "url": "/3456y456",
-      "icon": "menu-up"
-  },
-   {
-      "name": "Dashboard",
-      "url": "/577545354",
-      "icon": "menu-up"
-  },
-   {
-      "name": "Dashboard",
-      "url": "/5756454353",
-      "icon": "menu-up"
-  },
-   {
-      "name": "Dashboard",
-      "url": "/5346467645",
-      "icon": "menu-up"
-  },
-   {
-      "name": "Dashboard",
-      "url": "/4563565635",
-      "icon": "menu-up"
-  },
-   {
-      "name": "Dashboard",
-      "url": "/3535463546",
-      "icon": "menu-up"
-  },
-   {
-      "name": "Dashboard",
-      "url": "/36746326348",
+      "name": "Master the Art of Small Talk",
+      "url": "/dvft344",
       "icon": "menu-up"
     },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/fv4rg37",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/ddfd344",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/dfg4345",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/44gtvf",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/43gttvbvt",
+      "icon": "menu-up"
+  },
+    {
+      "name": "Master the Art of Small Talk",
+      "url": "/dfg4345",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/44gtvf",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/43gttvbvt",
+      "icon": "menu-up"
+  },
+    {
+      "name": "Master the Art of Small Talk",
+      "url": "/dfg4345",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/44gtvf",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/43gttvbvt",
+      "icon": "menu-up"
+  },
+    {
+      "name": "Master the Art of Small Talk",
+      "url": "/dfg4345",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/44gtvf",
+      "icon": "menu-up"
+    },
+   {
+      "name": "Master the Art of Small Talk",
+      "url": "/43gttvbvt",
+      "icon": "menu-up"
+  },
+ 
     
 
   

@@ -14,9 +14,12 @@
   }
 
   #main-content {
-    padding: 2rem;
-    min-height: calc(100vh - 9rem);
+    padding: 1rem 1.5rem;
+    min-height: 100vh ;
     /*max-width: 830px;*/
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
   }
 
   #footer{
@@ -24,6 +27,8 @@
     height: 35px;
   }
 }
+
+
 
 .navbar-fixed .navbar-top {
     position: sticky;
@@ -94,4 +99,9 @@ a {
   position: absolute;
   right: 17px;
   padding: 3px;
+}
+
+
+.fontawesome-icons .the-icon svg {
+  font-size: 24px;
 }

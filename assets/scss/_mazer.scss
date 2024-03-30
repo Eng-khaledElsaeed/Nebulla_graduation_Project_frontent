@@ -85,6 +85,12 @@
 // - 2.18. icons
 @import "./components/icons";
 
+// - 2.19. promptsChat
+@import "./components/ChatPromotsPage/promptsChat";
+
+// - 2.19. authintication pages
+@import "./pages/auth";
+
 // - 4.0 Layout
 @import "./layouts/main.scss";
 

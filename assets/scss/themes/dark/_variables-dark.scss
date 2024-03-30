@@ -11,6 +11,8 @@ $theme-colors-light: (
   'info': tint-color($info, 25%),
 );
 
+
+
 $alert-colors: (
     primary: (
         text-color: #fff,
@@ -59,11 +61,18 @@ $card-box-shadow:                   -8px 12px 18px 0 rgba(25,42,70,.13);
 // Body
 $body-bg:                   #151521;
 $body-color:                #c2c2d9;
+$white-black-color: $white;
 
 // Pages
 $page-auth-bg:          #151521;
 $page-auth-right-bg:    linear-gradient(90deg, #151521, #151521) !default;
 $page-error-bg:         $body-bg;
+
+
+//chat page
+
+$chat-text-input-bg: #1e1f20;
+
 
 
 $link-color:                              $primary;

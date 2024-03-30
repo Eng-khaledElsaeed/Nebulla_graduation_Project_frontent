@@ -84,17 +84,8 @@ $btn-colors: (
   ),
 );
 
-
-// Body
-//
-// Settings for the `<body>` element.
-
-$body-bg: #f2f7ff !default;
-$body-color: #607080 !default;
-$body-text-align: null !default;
-
 // Bootstrap Variables
-$white:    #fff !default;
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -104,7 +95,23 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black: #000 !default;
+
+
+
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: #f2f7ff !default;
+$body-color: #607080 !default;
+$body-text-align: null !default;
+$white-black-color: $black !default;
+
+
+
 
 
 
@@ -161,7 +168,7 @@ $light:         $gray-100 !default;
 $dark:          $body-bg;
 
 
-
+// sidebar varaibles
 $sidebar-bg: #fff !default;
 $sidebar-link-color: #25396f !default;
 $sidebar-link-hover-bg:         rgb(240, 241, 245) !default;
@@ -169,11 +176,19 @@ $sidebar-Action-hover-bg:         rgb(226 226 226) !default;
 $sidebar-link-hover-color:      #25396f !default;
 $sidebar-submenu-color:         $sidebar-link-color !default;
 $sidebar-submenu-hover-color:   $primary !default;
+$sidebar-width: 300px;
 
 // Pages
 $page-auth-bg:   $white !default;
 $page-auth-right-bg:   linear-gradient(90deg, #2d499d,#3f5491) !default;
 $page-error-bg:  #ebf3ff !default;
+
+// chat page
+
+$chat-container-width: 830px;
+$chat-text-input-bg:#e0e4ef  !default;
+
+
 
 // Divider
 $divider-bg:    #DFE3E7 !default;

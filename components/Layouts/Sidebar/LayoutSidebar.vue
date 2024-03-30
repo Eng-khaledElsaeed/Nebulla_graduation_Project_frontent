@@ -77,7 +77,7 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
 </script>
 <template>
   <div id="sidebar" :class="{ 'active': isSidebarActive }">
-    <div class="sidebar-wrapper active" ref="sidebarWrapper">
+    <div class="sidebar-wrapper active">
       <div class="sidebar-header">
         <div class="d-flex justify-content-between">
           <div class="logo">
@@ -97,7 +97,7 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
         </div>
       </div>
 
-      <div class="sidebar-menu">
+      <div class="sidebar-menu" ref="sidebarWrapper">
         <ul class="menu">
           <template v-for="item in store.sidebarItems">
             <li v-if="item.isTitle" class="sidebar-title" :key="item.key">

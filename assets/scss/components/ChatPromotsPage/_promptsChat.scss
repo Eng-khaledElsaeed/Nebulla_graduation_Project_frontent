@@ -1,0 +1,123 @@
+@import "./../../variables";
+
+
+
+.chat-container {
+	.chat-window {
+		height: 100%;
+		width: 100%;
+		max-width: $chat-container-width ;
+
+		.chat-content {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 50px;
+			padding-top: 16px;
+
+			.prompt-container {
+				/*max-width: 712px;*/
+				width: 100%;
+				margin-bottom: 1rem;
+
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: column;
+				-moz-box-orient: vertical;
+				flex-direction: column;
+				-webkit-flex-shrink: 0;
+				-ms-flex-negative: 0;
+				flex-shrink: 0;
+				scroll-margin-top: 16px;
+			}
+		}
+	}
+}
+
+.clint-promot,.server-promot {
+	padding: 0;
+
+	.prompt-Text {
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.5rem;
+		font-family: Google Sans, Helvetica Neue, sans-serif;
+		letter-spacing: normal;
+		white-space: pre-wrap;
+		margin-block: 0;
+		padding-top: 5px;
+		color: $white-black-color;
+	}
+}
+
+.chat-window-text-input {
+	position: sticky;
+	background-color: var(--bs-body-bg);
+	z-index: 9;
+	top: 0;
+	max-width:$chat-container-width ;
+	margin: 0 auto;
+	.model-text-input-container {
+		width: 100%;
+		padding: 12px 20px;
+		box-sizing: border-box;
+		background-color: $chat-text-input-bg;
+		border-radius: 51px;
+		display: flex;
+		align-items: center;
+		input {
+			width: 100%;
+			font-size: 16px;
+			background: transparent;
+			border: none;
+			color: $white-black-color;
+			resize: vertical;
+		}
+
+		input:focus {
+			border: none;
+			outline: none;
+		}
+
+		.icons-btns-group {
+			.icon-btn {
+				display: inline-block;
+				position: relative;
+				box-sizing: border-box;
+				border: none;
+				outline: none;
+				background-color: rgba(0, 0, 0, 0);
+				fill: currentColor;
+				color: inherit;
+				text-decoration: none;
+				cursor: pointer;
+				user-select: none;
+				z-index: 0;
+				overflow: visible;
+				width: 48px;
+				height: 48px;
+
+				&:hover {
+					color: #ccc;
+					border-radius: 50%;
+					background: #343434;
+				}
+			}
+		}
+	}
+
+	.sub_Chat_Window_Footer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 14px;
+		margin: 0;
+	}
+}
+
+
+
+@media screen and (max-width: 1200px) {
+	
+
+}
