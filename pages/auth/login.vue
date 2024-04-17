@@ -18,17 +18,47 @@
 
 					<div class="card bg-glass">
 						<div class="card-body px-4 py-5 px-md-5">
-							<form>
+							<form method="post" @submit.prevent="handleSubmit">
 								<!-- Email input -->
 								<div class="form-outline mb-4">
-									<input type="email" id="form3Example3" class="form-control" />
-									<label class="form-label" for="form3Example3">Email address</label>
+									<label class="form-label" for="form3Email">Email</label>
+									<div class="position-relative">
+										<input v-model="formData.email" type="email" id="form3Email" name="email"
+											placeholder="e.g. example@email.com" class="form-control"
+											@change="v$.email.$touch" :class="{
+												'border border-danger focus-border-danger': v$.email.$error,
+												'border-[#42d392] ': !v$.email.$invalid,
+											}" />
+										<i v-if="!v$.email.$invalid || v$.email.$error" style="top: 0;right: -22px;"
+											:class="`bi ${!v$.email.$error ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} ${!v$.email.$invalid ? 'text-success' :'text-warning'}  fs-5`"
+											class="position-absolute end-2 h-full text-success"></i>
+									</div>
+
+									<div class="input-errors" v-for="error of v$.email.$errors" :key="error.$uid">
+										<div class="text-danger">{{ error.$message }}</div>
+									</div>
 								</div>
 
 								<!-- Password input -->
 								<div class="form-outline mb-4">
-									<input type="password" id="form3Example4" class="form-control" />
-									<label class="form-label" for="form3Example4">Password</label>
+									<label class="form-label" for="form3Pass">Password</label>
+
+									<div class="position-relative">
+										<input v-model="formData.password" type="password" id="form3Pass"
+											class="form-control" name="pass" placeholder="........"
+											@change="v$.password.$touch" :class="{
+												'border border-danger focus-border-danger': v$.password.$error,
+												'border-[#42d392] ': !v$.password.$invalid,
+											}" />
+										<i v-if="!v$.password.$invalid || v$.password.$error"
+											style="top: 0;right: -22px;"
+											:class="`bi ${!v$.password.$error ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} ${!v$.password.$invalid ? 'text-success' : 'text-warning'}  fs-5`"
+											class="position-absolute end-2 h-full text-success"></i>
+										<div class="input-errors" v-for="error of v$.password.$errors"
+											:key="error.$uid">
+											<div class="text-danger">{{ error.$message }}</div>
+										</div>
+									</div>
 								</div>
 
 								<!-- Submit button -->
@@ -52,9 +82,76 @@
 </template>
 
 <script setup>
+import { required, email, sameAs, minLength, helpers } from '@vuelidate/validators';
+import { useVuelidate } from '@vuelidate/core';
+
+
+
 definePageMeta({
 	layout: 'blank',
 })
+
+const formData = reactive({
+	email: '',
+	password: '',
+});
+
+
+
+const rules = computed(() => {
+	return {
+		email: {
+			required: helpers.withMessage('The email field is required', required),
+			email: helpers.withMessage('Invalid email format', email),
+		},
+		password: {
+			required: helpers.withMessage('The password field is required', required),
+			minLength: minLength(6),
+		},
+	};
+});
+
+const v$ = useVuelidate(rules, formData);
+
+const handleSubmit = async () => {
+	v$.value.$validate();
+	if (!v$.value.$error) {
+		try {
+			let res = await useBFetch('auth/login', {
+				method: 'POST',
+				body: { email: formData.email, password: formData.password }
+			});
+	
+			if (res && res.data.value) {
+				$swal.fire({
+					icon: 'success',
+					title: 'Registration Successful!',
+					showConfirmButton: false,
+					timer: 1500
+				})
+
+				setCookie("token", res.data.value.token, 7);
+				setCookie("user_id", res.data.value.user_id, 7);
+				await setUserInfo();
+				// navigateTo()
+				setTimeout(() => {
+					navigateTo('/')
+				}, 500);
+			} else if (res.error.value.statusCode === 401) {
+				$swal.fire({
+					icon: 'error',
+					title: 'Invalid credentials!',
+					text: 'Invalid email or password! Please try again',
+					confirmButtonText: 'ok'
+				});
+			}
+		} catch (e) {
+			console.log(e.message)
+		} finally {
+		
+		}
+	}
+}
 
 </script>
 

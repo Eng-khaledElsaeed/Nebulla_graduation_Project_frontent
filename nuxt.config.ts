@@ -49,6 +49,7 @@ export default defineNuxtConfig({
     { src: '~/plugins/bootstrap.client', mode: 'client' },
   ],
   modules: [
+    'nuxt-icon',
     '@pinia/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxtjs/color-mode'

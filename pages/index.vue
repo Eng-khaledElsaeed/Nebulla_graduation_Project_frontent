@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useStore } from '~/store';
 import { ref, watch, computed, onMounted } from "vue";
+const { $swal } = useNuxtApp()
+
 
 const store = useStore()
 const isSidebarActive = computed(() => store.isSidebarActive)
