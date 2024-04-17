@@ -54,9 +54,9 @@ export default function useFacebookLogin() {
           } else {
             $swal.fire({
               icon: 'error',
-              title: 'فشل عملية التسجيل',
-              text: "برجاء التواصل مع الدعم الفنى او التسجل بحسابك الخاص",
-              confirmButtonText: 'تاكيد',
+              title: 'Facebook Login Failed!',
+              text: `Please try again.`,
+              confirmButtonText: 'ok',
             });
           }
         });
@@ -76,7 +76,7 @@ export default function useFacebookLogin() {
       "access_token":facebookToken
     }
 
-    let { data: res } = await useBFetch('/login/facebook', 
+    let { data: res } = await useBFetch('auth/login/facebook', 
       { method: 'post' ,
         body: JSON.stringify(requestBody), // Convert the object to a JSON string
         headers: {
@@ -115,9 +115,9 @@ export default function useFacebookLogin() {
           } else {
             $swal.fire({
               icon: 'error',
-              title: 'فشل عملية التسجيل',
-              text: "برجاء التواصل مع الدعم الفنى او التسجل بحسابك الخاص",
-              confirmButtonText: 'تاكيد',
+              title: 'Facebook Login Failed!',
+              text: `Please try again.`,
+              confirmButtonText: 'ok',
             });
           }
         });

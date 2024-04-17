@@ -34,7 +34,12 @@ const data = [
 ];
 
 definePageMeta({
-  layout: 'chatwindow'
+  middleware: ["auth"],
+  layout: 'chatwindow',
+})
+
+definePageMeta({
+  middleware: ["auth"],
 })
 </script>
 

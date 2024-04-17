@@ -15,13 +15,16 @@
 		<!-- Auth providers -->
 		<div class="row justify-content-center p-1">
 			<div class="col-12 text-center">
-				<button class="btn btn-link" :style="{ color: authProviders.facebook.colorInDark }">
+				<button class="btn btn-link" @click="handleFacebookLogin" :disabled="isLoading"
+					:style="{ color: authProviders.facebook.colorInDark }">
 					<i class="bi bi-facebook fs-3"></i>
 				</button>
-				<button class="btn btn-link" :style="{ color: authProviders.google.colorInDark }">
+				<button class="btn btn-link" @click="handleFacebookLogin" :disabled="isLoading"
+					:style="{ color: authProviders.google.colorInDark }">
 					<i class="bi bi-google fs-3"></i>
 				</button>
-				<button class="btn btn-link" :style="{ color: authProviders.github.colorInDark }">
+				<button class="btn btn-link" @click="handleFacebookLogin" :disabled="isLoading"
+					:style="{ color: authProviders.github.colorInDark }">
 					<i class="bi bi-github fs-3"></i>
 				</button>
 			</div>
@@ -30,6 +33,10 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+import useFacebookLogin from '~/composables/global/useFacebookLogin';
+const { isLoading, error, handleFacebookLogin } = useFacebookLogin();
+
 const authProviders = ref({
 facebook: {
 	icon: 'facebook',
@@ -47,6 +54,7 @@ github:{
 	colorInDark: '#fff',
 }
 })
+
 
 </script>
 
