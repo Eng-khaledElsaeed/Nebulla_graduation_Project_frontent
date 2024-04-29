@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     public: {
       jsonData :true
       ,baseURL: process.env.NODE_ENV === 'development' ? 
-          'https://ontherackb.from-masr.com:50/' : 'https://ontherackb.from-masr.com:50/',
+          'http://127.0.0.1:8000/' : 'http://127.0.0.1:8000/',
       domain: process.env.NODE_ENV === 'development' ?
         'http://localhost:3000/' : 'https://ontherack.from-masr.com/'    
       },

@@ -65,6 +65,27 @@
 								</div>
 
 
+								<!-- username input -->
+								<div class="form-outline mb-4">
+									<label class="form-label" for="form4Username">username</label>
+									<div class="position-relative">
+										<input v-model="formData.username" type="username" id="form4Username"
+											name="username" placeholder="e.g. example_E3" class="form-control"
+											@change="v$.username.$touch" :class="{
+												'border border-danger focus-border-danger': v$.username.$error,
+												'border-[#42d392] ': !v$.username.$invalid,
+											}" />
+										<i v-if="!v$.username.$invalid || v$.username.$error"
+											style="top: 0;right: -22px;"
+											:class="`bi ${!v$.username.$error ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} ${!v$.username.$invalid ? 'text-success' : 'text-warning'}  fs-5`"
+											class="position-absolute end-2 h-full text-success"></i>
+									</div>
+
+									<div class="input-errors" v-for="error of v$.username.$errors" :key="error.$uid">
+										<div class="text-danger">{{ error.$message }}</div>
+									</div>
+								</div>
+
 								<!-- Email input -->
 								<div class="form-outline mb-4">
 									<label class="form-label" for="form4Email">Email</label>
@@ -84,6 +105,7 @@
 										<div class="text-danger">{{ error.$message }}</div>
 									</div>
 								</div>
+
 
 
 								<!-- Password input -->
@@ -114,17 +136,17 @@
 									<label class="form-label" for="form4confPass">confirm Password</label>
 
 									<div class="position-relative">
-										<input v-model="formData.confirmPassword" type="password" id="form4confPass"
-											class="form-control" name="pass" placeholder="........"
-											@change="v$.confirmPassword.$touch" :class="{
-												'border border-danger focus-border-danger': v$.confirmPassword.$error,
-												'border-[#42d392] ': !v$.confirmPassword.$invalid,
+										<input v-model="formData.confirmation_password" type="password"
+											id="form4confPass" class="form-control" name="pass" placeholder="........"
+											@change="v$.confirmation_password.$touch" :class="{
+												'border border-danger focus-border-danger': v$.confirmation_password.$error,
+												'border-[#42d392] ': !v$.confirmation_password.$invalid,
 											}" />
-										<i v-if="!v$.confirmPassword.$invalid || v$.confirmPassword.$error"
+										<i v-if="!v$.confirmation_password.$invalid || v$.confirmation_password.$error"
 											style="top: 0;right: -22px;"
-											:class="`bi ${!v$.confirmPassword.$error ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} ${!v$.confirmPassword.$invalid ? 'text-success' : 'text-warning'}  fs-5`"
+											:class="`bi ${!v$.confirmation_password.$error ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} ${!v$.confirmation_password.$invalid ? 'text-success' : 'text-warning'}  fs-5`"
 											class="position-absolute end-2 h-full text-success"></i>
-										<div class="input-errors" v-for="error of v$.confirmPassword.$errors"
+										<div class="input-errors" v-for="error of v$.confirmation_password.$errors"
 											:key="error.$uid">
 											<div class="text-danger">{{ error.$message }}</div>
 										</div>
@@ -158,16 +180,22 @@ definePageMeta({
 	layout: 'blank',
 })
 
+
+
 const formData = reactive({
+	username: '',
 	email: '',
 	firstName:'',
 	lastName:'',
 	password: '',
-	confirmPassword:''
+	confirmation_password:''
 });
 
 const rules = computed(() => {
 	return {
+		username: {
+			required: helpers.withMessage('The username field is required', required),
+		},
 		email: {
 			required: helpers.withMessage('The email field is required', required),
 			email: helpers.withMessage('Invalid email format', email),
@@ -176,7 +204,7 @@ const rules = computed(() => {
 			required: helpers.withMessage('The password field is required', required),
 			minLength: minLength(6),
 		},
-		confirmPassword: {
+		confirmation_password: {
 			required: helpers.withMessage('The confirmation password field is required', required),
 			sameAsPassword: helpers.withMessage('Passwords do not match', sameAs(formData.password)),
 		},
@@ -195,7 +223,7 @@ const handleSubmit = async () => {
 	v$.value.$validate();
 	if (!v$.value.$error) {
 		try {
-			let res = await useBFetch('auth/registration', {
+			let res = await useBFetch('account/register', {
 				method: 'POST',
 				body: { email: formData.email, password: formData.password }
 			});

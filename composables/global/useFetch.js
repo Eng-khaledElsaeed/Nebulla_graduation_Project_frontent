@@ -10,6 +10,7 @@ export const useBFetch = async (request, opts, withAuthenticate=true) => {
         opts.headers = {
             ...opts.headers,
             'Authorization': `Bearer ${getCookie('token')}`,
+			'Content-Type': 'application/json'
         }
     }
 
@@ -22,8 +23,8 @@ export const useBFetch = async (request, opts, withAuthenticate=true) => {
         $swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Your session has been ended, please login again",
-            footer: '<a href="auth/login">are you want to relogin?</a>',
+            text: "Your session has been ended, please signin again",
+            footer: '<a href="auth/signin">are you want to resignin?</a>',
             });
         // Handle other cases as needed
         reject(error); // Reject the Promise with the error
@@ -33,11 +34,11 @@ export const useBFetch = async (request, opts, withAuthenticate=true) => {
         $swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Your session has been ended, please login again",
-            footer: '<a href="auth/login">are you want to relogin?</a>',
+            text: "Your session has been ended, please signin again",
+            footer: '<a href="auth/signin">are you want to resignin?</a>',
             });
         abortController.abort()
-        navigateTo('/auth/login', {
+        navigateTo('/auth/signin', {
             external: true
         })
     }
@@ -57,7 +58,7 @@ export const useBFetch = async (request, opts, withAuthenticate=true) => {
             icon: "error",
             title: "Oops...",
             text: error.value.data.error.detials,
-            footer: '<a href="auth/login">are you want to relogin?</a>',
+            footer: '<a href="auth/signin">are you want to resignin?</a>',
         });
     }
     

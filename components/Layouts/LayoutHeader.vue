@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useStore } from '~/store';
+import { useStore } from '~/store/useStore';
 
 
 let { toggleSidebar } = useStore()
@@ -10,5 +10,5 @@ let { toggleSidebar } = useStore()
         <a href="#" class="burger-btn d-block d-xl-none" @click="toggleSidebar">
             <i class="bi bi-justify fs-3"></i>
         </a>
-    </header>      
+    </header>
 </template>

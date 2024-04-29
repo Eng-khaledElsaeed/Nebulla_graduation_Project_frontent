@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import PerfectScrollbar from "perfect-scrollbar"
-import { useStore } from '~/store';
+import { useStore } from '~/store/useStore';
 import { ref, watch, computed, onMounted } from "vue";
 
 const store = useStore()

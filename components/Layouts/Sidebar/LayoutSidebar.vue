@@ -2,8 +2,8 @@
 import PerfectScrollbar from "perfect-scrollbar"
 import SidebarItem from "./SidebarItem.vue";
 import Dark from "./Dark.vue";
-import {useStore} from '~/store';
-import {ref, watch, computed, onMounted} from "vue";
+import { useStore } from '~/store/useStore';
+import { ref, watch, computed, onMounted } from "vue";
 
 const store = useStore()
 const isSidebarActive = computed(() => store.isSidebarActive)
@@ -114,7 +114,8 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
 
 
 <style lang="scss" scoped>
-[class^="bi-"]::before, [class*=" bi-"]::before {
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
   vertical-align: text-top;
 }
 </style>

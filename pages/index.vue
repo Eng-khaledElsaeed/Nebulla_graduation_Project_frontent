@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStore } from '~/store';
+import { useStore } from '~/store/useStore';
 import { ref, watch, computed, onMounted } from "vue";
 const { $swal } = useNuxtApp()
 
@@ -38,17 +38,12 @@ definePageMeta({
   layout: 'chatwindow',
 })
 
-definePageMeta({
-  middleware: ["auth"],
-})
 </script>
 
 <template>
   <div class="chat-container">
     <!--<div></div>-->
     <div class="chat-window">
-      
-
       <div class="chat-heading" v-if="data.length < 0">
         <h3>Hello, khaled</h3>
         How can I help you today?
@@ -74,9 +69,7 @@ definePageMeta({
           </div>
         </section>
       </div>
-
       <ModelTextInput></ModelTextInput>
-
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useStore } from '~/store';
+import { useStore } from '~/store/useStore';
 const store = useStore();
 
 const colorMode = useColorMode();
@@ -27,7 +27,8 @@ watch(() => store.isDark, (isDark) => {
       </g>
     </svg>
     <div class="form-check form-switch fs-6">
-      <input class="form-check-input me-0" type="checkbox" id="toggle-dark" ref="darkToggler" style="cursor: pointer" @click="store.toggleDark" v-model="store.isDark"/>
+      <input class="form-check-input me-0" type="checkbox" id="toggle-dark" ref="darkToggler" style="cursor: pointer"
+        @click="store.toggleDark" v-model="store.isDark" />
       <label class="form-check-label"></label>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
