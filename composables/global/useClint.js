@@ -22,7 +22,7 @@ export function userLogout() {
 }
 
 export function userLogin() {
-  return navigateTo('/auth/signin'); 
+  return navigateTo('/auth/login'); 
 }
 
 export async function IsProvider(){
@@ -111,7 +111,6 @@ export function getClintUrl(name,facebookProfile){
 };
 
 export async function setUserInfo(userdata){
-  const userState = useStore()
   try {
     console.log(userdata)
     setCookie("User_info",JSON.stringify(userdata),7)

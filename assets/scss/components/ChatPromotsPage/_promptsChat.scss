@@ -7,18 +7,33 @@
 		height: 100%;
 		width: 100%;
 		max-width: $chat-container-width ;
+		display: flex ;
+		align-items: center ;
+		justify-content: center ;
+
+		.chat-heading{
+			font-size: 22px;
+			h1{
+				color: rgb(0, 119, 194);
+				/*color: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(14, 236, 250, 1) 23%, rgba(9, 9, 121, 1) 52%, rgba(5, 100, 181, 1) 71%, rgba(0, 212, 255, 1) 88%);*/
+			}
+		}
 
 		.chat-content {
 			display: flex;
 			flex-direction: column;
-			margin-bottom: 50px;
+			margin-bottom: 10px;
 			padding-top: 16px;
+			bottom: 0;
+			/*position: fixed;*/
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
 			.prompt-container {
-				/*max-width: 712px;*/
+				max-width: 712px;
 				width: 100%;
 				margin-bottom: 1rem;
-
 				display: flex;
 				-webkit-box-orient: vertical;
 				-webkit-box-direction: normal;

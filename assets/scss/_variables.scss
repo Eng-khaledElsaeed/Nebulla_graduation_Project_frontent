@@ -183,6 +183,13 @@ $page-auth-bg:   $white !default;
 $page-auth-right-bg:   linear-gradient(90deg, #2d499d,#3f5491) !default;
 $page-error-bg:  #ebf3ff !default;
 
+// preloader
+$preloader-hue: 200;
+$preloader-bg: hsl($preloader-hue, 16.77% ,9.85%) !default;
+$preloader-fg: hsl($preloader-hue, 90%, 5%);
+$preloader-trans-dur: 0.3s;
+$preloader-font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+
 // chat page
 
 $chat-container-width: 830px;

@@ -15,6 +15,10 @@ export default defineNuxtConfig({
       'composables/**'
     ]
   },
+  routeRules: {
+    '': { redirect: '/collection' },
+    //'/external-route': { redirect: 'https://example.com' },
+  },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {

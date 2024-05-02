@@ -63,6 +63,15 @@ $body-bg:                   #151521;
 $body-color:                #c2c2d9;
 $white-black-color: $white;
 
+
+// preloader
+$preloader-hue: 223;
+$preloader-bg: hsl(var($preloader-hue), 90%, 95%) !default;
+$preloader-fg: hsl(var($preloader-hue), 90%, 5%);
+$preloader-trans-dur: 0.3s;
+$preloader-font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+
+
 // Pages
 $page-auth-bg:          #151521;
 $page-auth-right-bg:    linear-gradient(90deg, #151521, #151521) !default;

@@ -57,7 +57,7 @@ const menuClick = (event: MouseEvent) => {
 	isSubActive.value = !isSubActive.value;
 }
 
-const isUrlActive = (url: string) => url == route.path;
+const isUrlActive = (url: string) => `/collection/${url}` == route.path;
 const itemTitle = (title: string, Maxlength: number = 20) => {
 	let Title = title; // Initialize with the original title
 	if (title.length > Maxlength) {

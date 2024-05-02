@@ -176,11 +176,12 @@
 <script setup>
 import { required, email, sameAs, minLength, helpers } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
+import { useStore } from '~/store/useStore';
+const userState = useStore()
+const { $swal } = useNuxtApp()
 definePageMeta({
 	layout: 'blank',
 })
-
-
 
 const formData = reactive({
 	username: '',
@@ -223,9 +224,10 @@ const handleSubmit = async () => {
 	v$.value.$validate();
 	if (!v$.value.$error) {
 		try {
-			let res = await useBFetch('account/register', {
+			userState.isloading = true;
+			let res = await useBFetch('account/register/', {
 				method: 'POST',
-				body: { email: formData.email, password: formData.password }
+				body: formData
 			});
 
 			if (res && res.data.value) {
@@ -238,8 +240,7 @@ const handleSubmit = async () => {
 
 				setCookie("token", res.data.value.token, 7);
 				setCookie("user_id", res.data.value.user_id, 7);
-				await setUserInfo();
-				// navigateTo()
+				setUserInfo();
 				setTimeout(() => {
 					navigateTo('/')
 				}, 500);
@@ -248,13 +249,13 @@ const handleSubmit = async () => {
 					icon: 'error',
 					title: 'Invalid credentials!',
 					text: 'Invalid email or password! Please try again',
-					confirmButtonText: 'حسنا'
+					confirmButtonText: 'ok'
 				});
 			}
 		} catch (e) {
 			console.log(e.message)
 		} finally {
-
+			userState.isloading = false;
 		}
 	}
 }

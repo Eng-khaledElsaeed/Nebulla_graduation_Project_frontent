@@ -1,9 +1,13 @@
-import sideBarItems from './data/sidebarItems';
+import SideBarItems from './data/sidebarItems';
 import {defineStore} from 'pinia'
+import Collections from './data/collections';
+import Interactions from './data/interactions';
 import {reactive, ref} from "vue";
 
 export const useStore = defineStore('main', () => {
-  const sidebarItems = reactive(sideBarItems)
+  const sidebarItems = reactive(SideBarItems)
+  const collections = reactive(Collections)
+  const interactions = reactive(Interactions)
   const isSidebarActive = ref(true)
   const isloading = ref(false)
   const isDark = ref(true)
@@ -14,6 +18,8 @@ export const useStore = defineStore('main', () => {
 
   return {
     sidebarItems,
+    collections,
+    interactions,
     isSidebarActive,
     isDark,
     isloading,

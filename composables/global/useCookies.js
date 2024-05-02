@@ -7,9 +7,12 @@ export function removeCookie(name) {
 export function getCookie(name) {
   const cookies = document.cookie.split("; ");
   for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].split("=");
-    if (cookie[0] === name) {
-      return cookie[1];
+    const cookie = cookies[i];
+    const index = cookie.indexOf("="); // Find the position of the first "=" character
+    const cookieName = cookie.substring(0, index); // Extract the cookie name
+    const cookieValue = cookie.substring(index + 1); // Extract the cookie value
+    if (cookieName === name) {
+      return cookieValue;
     }
   }
   return null; // Cookie not found

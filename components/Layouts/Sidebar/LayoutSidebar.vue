@@ -7,9 +7,9 @@ import { ref, watch, computed, onMounted } from "vue";
 
 const store = useStore()
 const isSidebarActive = computed(() => store.isSidebarActive)
+getUserlistColections()
 
 const sidebarWrapper = ref<HTMLElement>()
-
 
 /**
  * On Window Resize
@@ -99,11 +99,11 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
 
       <div class="sidebar-menu" ref="sidebarWrapper">
         <ul class="menu">
-          <template v-for="item in store.sidebarItems">
-            <li v-if="item.isTitle" class="sidebar-title" :key="item.key">
+          <template v-for="item in store.collections">
+            <!--<li v-if="item.isTitle" class="sidebar-title" :key="item.key">
               {{ item.name }}
-            </li>
-            <SidebarItem v-else :item="item"></SidebarItem>
+            </li>-->
+            <SidebarItem :item="item"></SidebarItem>
           </template>
         </ul>
       </div>
