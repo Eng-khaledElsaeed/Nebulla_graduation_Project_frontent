@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import LayoutSidebar from '~~/components/Layouts/Sidebar/LayoutSidebar.vue';
-import VerticalHeader from '~~/components/Layouts/VerticalHeader.vue';
-import LayoutFooter from '~~/components/Layouts/LayoutFooter.vue';
 
 </script>
 <template>

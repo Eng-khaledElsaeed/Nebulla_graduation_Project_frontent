@@ -18,7 +18,6 @@ const isSidebarActive = computed(() => store.isSidebarActive)
       <div id="main-content">
         <slot />
       </div>
-      <!--<ChatWindowFooter></ChatWindowFooter>-->
     </div>
   </div>
 </template>

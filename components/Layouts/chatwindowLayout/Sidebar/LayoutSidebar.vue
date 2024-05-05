@@ -7,7 +7,7 @@ import { ref, watch, computed, onMounted } from "vue";
 
 const store = useStore()
 const isSidebarActive = computed(() => store.isSidebarActive)
-getUserlistColections()
+const collections= await getUserlistColections()
 
 const sidebarWrapper = ref<HTMLElement>()
 
@@ -73,7 +73,6 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
     body.style.overflowY = isSidebarActive ? "hidden" : "auto"
   }
 })
-
 </script>
 <template>
   <div id="sidebar" :class="{ 'active': isSidebarActive }">
@@ -99,7 +98,7 @@ watch(() => store.isSidebarActive, (isSidebarActive) => {
 
       <div class="sidebar-menu" ref="sidebarWrapper">
         <ul class="menu">
-          <template v-for="item in store.collections">
+          <template v-for="item in collections">
             <!--<li v-if="item.isTitle" class="sidebar-title" :key="item.key">
               {{ item.name }}
             </li>-->

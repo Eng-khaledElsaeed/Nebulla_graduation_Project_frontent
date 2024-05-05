@@ -5,7 +5,6 @@
 
   &.layout-navbar {
     padding: 0;
-    /*transition: margin-left 7s cubic-bezier(.22,1,.36,1);*/
   }
 
   &.layout-horizontal {
@@ -15,11 +14,11 @@
 
   #main-content {
     padding: 1rem 1.5rem;
-    min-height: 100vh ;
-    /*max-width: 830px;*/
+    min-height:100vh;
     display: flex;
     align-items: center;
-    /*justify-content: center;*/
+    /*margin-top: 20px;*/
+    height: 100%;
   }
 
   #footer{
@@ -31,16 +30,19 @@
 
 
 .navbar-fixed .navbar-top {
-    position: sticky;
-    background-color: var(--bs-body-bg);
-    z-index: 9;
-    top: 0;
-    width: inherit;
+  position: sticky;
+  background-color: var(--bs-body-bg);
+  transition: left .5s ease-out;
+  z-index: 12;
+  top: 0;
+  width: inherit;
 }
+
 
 #main, #main-content {
   display: flex;
   flex-direction: column;
+  transition: width .5s ease-out;
 }
 
 #main-content, .page-heading {
@@ -84,10 +86,12 @@ a {
 @media screen and (min-width: 1200px) {
   #main {
     margin-left: 300px;
+    /*width: calc(100% - 300px);*/
   }
 
   #sidebar:not(.active) + #main {
     margin-left: 0;
+    /*width: 100%;*/
   }
 }
 

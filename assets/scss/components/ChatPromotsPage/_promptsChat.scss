@@ -2,7 +2,6 @@
 
 
 
-.chat-container {
 	.chat-window {
 		height: 100%;
 		width: 100%;
@@ -10,9 +9,11 @@
 		display: flex ;
 		align-items: center ;
 		justify-content: center ;
+		flex-direction: column;
 
 		.chat-heading{
 			font-size: 22px;
+			padding: 60px 10px;
 			h1{
 				color: rgb(0, 119, 194);
 				/*color: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(14, 236, 250, 1) 23%, rgba(9, 9, 121, 1) 52%, rgba(5, 100, 181, 1) 71%, rgba(0, 212, 255, 1) 88%);*/
@@ -22,13 +23,13 @@
 		.chat-content {
 			display: flex;
 			flex-direction: column;
-			margin-bottom: 10px;
+			/*margin-bottom: 10px;
 			padding-top: 16px;
 			bottom: 0;
-			/*position: fixed;*/
 			display: flex;
 			align-items: center;
-			justify-content: center;
+			justify-content: center;*/
+			margin-bottom: 170px;
 
 			.prompt-container {
 				max-width: 712px;
@@ -47,7 +48,7 @@
 			}
 		}
 	}
-}
+
 
 .clint-promot,.server-promot {
 	padding: 0;
@@ -62,14 +63,15 @@
 		margin-block: 0;
 		padding-top: 5px;
 		color: $white-black-color;
+		max-width: 616px;
 	}
 }
 
 .chat-window-text-input {
-	position: sticky;
+	position: fixed;
+	bottom: 0;
 	background-color: var(--bs-body-bg);
 	z-index: 9;
-	top: 0;
 	max-width:$chat-container-width ;
 	margin: 0 auto;
 	.model-text-input-container {
@@ -136,3 +138,4 @@
 	
 
 }
+

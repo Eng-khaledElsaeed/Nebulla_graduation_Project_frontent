@@ -10,6 +10,7 @@ export const useStore = defineStore('main', () => {
   const interactions = reactive(Interactions)
   const isSidebarActive = ref(true)
   const isloading = ref(false)
+  const Responseisloading = ref(false)
   const isDark = ref(true)
   const toggleSidebar = () => isSidebarActive.value = !isSidebarActive.value
   const closeSidebar = () => isSidebarActive.value = false

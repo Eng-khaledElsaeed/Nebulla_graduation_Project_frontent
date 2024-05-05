@@ -27,8 +27,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="chat-container">
-    <!--<div></div>-->
+
     <div class="chat-window">
       <div class="chat-heading" v-if="data.length <= 0">
         <h1>Hello, khaled</h1>
@@ -54,8 +53,8 @@ definePageMeta({
             </div>
           </div>
         </section>
-        <ModelTextInput></ModelTextInput>
       </div>
+      
+      <ModelTextInput></ModelTextInput>
     </div>
-  </div>
 </template>

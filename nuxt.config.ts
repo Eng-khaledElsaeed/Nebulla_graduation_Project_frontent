@@ -10,6 +10,13 @@ export default defineNuxtConfig({
 
   },
   ssr: false,
+  vite: {
+    server: {
+      hmr: {
+        port: 3008 // Change port if needed
+      }
+    }
+  },
   imports: {
     dirs: [
       'composables/**'
@@ -56,7 +63,9 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@pinia/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/mdc',
+    "@nuxt/image"
   ],
   components: [
     {

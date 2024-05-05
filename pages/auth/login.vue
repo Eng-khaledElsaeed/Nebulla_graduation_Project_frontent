@@ -126,6 +126,7 @@ const handleSubmit = async () => {
 				method: 'POST',
 				body:formData
 			});
+			console.log(res);
 	
 			if (res && res.data.value) {
 				$swal.fire({

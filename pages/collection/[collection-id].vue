@@ -21,8 +21,6 @@ await getUserlistInteractions(route.params.collectionid);
 </script>
 
 <template>
-	<div class="chat-container">
-		<!--<div></div>-->
 		<div class="chat-window">
 			<div class="chat-content">
 				<section id="Prompts" class="row">
@@ -33,8 +31,7 @@ await getUserlistInteractions(route.params.collectionid);
 						</div>
 					</div>
 				</section>
-				<ModelTextInput></ModelTextInput>
 			</div>
+			<ModelTextInput></ModelTextInput>
 		</div>
-	</div>
 </template>
