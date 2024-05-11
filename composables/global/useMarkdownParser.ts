@@ -17,7 +17,7 @@ import YamlLang from 'shiki/langs/yaml.mjs'
 export default function useMarkdownParser() {
   let parser: Awaited<ReturnType<typeof createMarkdownParser>>
 
-  const parse = async (markdown: string) => {
+  const parse = async (markdown: String) => {
     if (!parser) {
       parser = await createMarkdownParser({
         rehype: {

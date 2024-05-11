@@ -10,7 +10,7 @@ export const useBFetch = async (request, opts, withAuthenticate=true) => {
         opts.headers = {
             ...opts.headers,
             'Authorization': `Bearer ${getCookie('token')}`,
-			'Content-Type': 'application/json'
+			//'Content-Type': 'application/json'
         }
     }
 

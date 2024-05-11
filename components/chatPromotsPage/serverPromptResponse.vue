@@ -38,28 +38,11 @@ const props = defineProps({
 
 
 
-const md = ref(`
-##### Just a Vue app
 
-This is markdown content rendered via the \`<MDCRenderer>\` component,
-including MDC below.
-
-::alert
-Hello MDC
-::
-
-\`\`\`ts
-const a = 1;
-\`\`\`
-`);
 
 const parse = useMarkdownParser()
-//const ast = await parse(md.value)
 const ast = await parse(props.ModelResponseText)
 
-//onBeforeMount(async () => {
-//	ast.value =
-//})
 console.log(ast)
 
 </script>

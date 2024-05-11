@@ -1,7 +1,10 @@
 <template>
 	<div class="chat-window-text-input">
 
-		<form method="post" @submit.prevent="sendUserChat" class="model-text-input-container row">
+		<div class="model-text-input-container row">
+			<div class="image-preview" v-if="showUploadImage">
+				<img :src="uploadedImageSrc" alt="" />
+			</div>
 			<div class="position-relative">
 				<textarea v-model="formData.user_chat" type="text" name="user_chat" :placeholder="placeholderText"
 					class="form-control input" @change="v$.user_chat.$touch" :class="{
@@ -12,20 +15,24 @@
 				<span class="character-counter">{{ formData.user_chat.length }}/2500</span>
 			</div>
 
-			<div class="icons-btns-group" v-if="formData.user_chat.length > 0 && !userState.Responseisloading">
-				<button id="imageUploader" class="icon-btn" aria-label="Upload Image">
+			<div class="icons-btns-group">
+				<button id="imageUploader" class="icon-btn" aria-label="Upload Image" @click="handleImageUpload">
 					<i class="bi bi-image-fill fs-4"></i>
 				</button>
-				<button id="voiceRecognition" class="icon-btn" aria-label="Use Voice Recognition">
+				<input type="file" id="imageInput" accept="image/*" class="d-none" @change="uploadImage">
+				<button id="voiceRecognition" class="icon-btn" aria-label="Use Voice Recognition"
+					@click="handlevoiceRecognition">
 					<i class="bi bi-mic fs-4"></i>
 				</button>
-				<button id="send" type="submit" class="icon-btn text-success">
+				<button id="send" type="submit" class="icon-btn text-success" @click="sendUserChat"
+					v-if="formData.user_chat.length > 0 && !userState.Responseisloading">
 					<i class="bi bi-send-check fs-4"></i>
 				</button>
+				<button class="icon-btn text-success spinner" v-if="userState.Responseisloading">
+					<i class="bi bi-arrow-repeat fs-4"></i>
+				</button>
 			</div>
-		</form>
-
-
+		</div>
 
 		<div class="sub_Chat_Window_Footer clearfix mb-0 text-muted">
 			<p>2023 &copy;Nebulla may display inaccurate info, including about people, so double-check its
@@ -48,8 +55,12 @@ const { $swal } = useNuxtApp()
 const userState = useStore()
 const route = useRoute();
 let max_rows = ref(2);
+let showUploadImage = ref(false)
+let uploadedImageSrc = ref(null)
+
 const formData = reactive({
 	user_chat: '',
+	image: null,
 });
 
 const rules = computed(() => {
@@ -64,17 +75,49 @@ const rules = computed(() => {
 const placeholderText = computed(() => {
 	return "Ask me a question";
 });
+
+const handleImageUpload = () => {
+	let input = document.querySelector('#imageInput')
+	input.click();
+};
+const uploadImage = (event) => {
+	const file = event.target.files[0];
+	if (file) {
+		formData.image = file;
+		const reader = new FileReader();
+
+		reader.onload = function (event) {
+			uploadedImageSrc.value = event.target.result;
+		};
+
+		reader.readAsDataURL(file);
+		showUploadImage.value = true;
+	}
+}
+
+const handlevoiceRecognition = (event) => {
+	const file = event.target.files[0];
+	if (file) {
+		formData.image = file;
+	}
+}
 console.log(route.params.collectionid)
 const v$ = useVuelidate(rules, formData);
 const sendUserChat = async () => {
+	const data = new FormData();
 	v$.value.$validate();
 	if (!v$.value.$error) {
 		try {
 			userState.Responseisloading = true;
+			console.log(formData)
+			data.append('user_chat',JSON.stringify(formData.user_chat)); // Add user_chat to FormData
+			if (formData.image) {
+				data.append('image', formData.image); // Add image to FormData if it exists
+			}
 			if (!route.params.collectionid) {
 				let res = await useBFetch('aiapp/StartInteractionView/', {
 					method: 'POST',
-					body: formData
+					body: data
 				});
 
 				if (res && res.data.value) {
@@ -95,7 +138,7 @@ const sendUserChat = async () => {
 			}else {
 				let res = await useBFetch(`aiapp/StartInteractionView/${route.params.collectionid}/`, {
 					method: 'POST',
-					body: formData
+					body: data
 				});
 
 				if (res && res.data.value) {
@@ -115,6 +158,7 @@ const sendUserChat = async () => {
 				}
 			}
 			formData.user_chat = ''
+			showUploadImage.value = false;
 		} catch (e) {
 			console.log(e.message)
 		} finally {
@@ -122,6 +166,8 @@ const sendUserChat = async () => {
 		}
 	}
 }
+
+
 
 watch(() => formData.user_chat, (newValue, oldValue) => {
 	if (newValue.length > 150 && newValue.length < 300) {

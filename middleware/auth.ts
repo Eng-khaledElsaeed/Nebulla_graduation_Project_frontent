@@ -2,6 +2,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
   const token = getCookie('token')
   const authorizedRoutes = [
     '/collection',
+    '/collection/',
   ]
   console.log(to.fullPath)
 

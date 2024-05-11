@@ -120,6 +120,19 @@
 					background: #343434;
 				}
 			}
+			.spinner {
+				border-radius: 50%;
+				animation: spin 2s linear infinite;
+			}
+		}
+		.image-preview{
+			float: right;
+			margin: 16px;
+			img{
+				max-width:  240px;
+				max-height:  240px;
+				border-radius: 5px;
+			}
 		}
 	}
 
@@ -132,7 +145,15 @@
 	}
 }
 
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
 
+	100% {
+		transform: rotate(360deg);
+	}
+}
 
 @media screen and (max-width: 1200px) {
 	
