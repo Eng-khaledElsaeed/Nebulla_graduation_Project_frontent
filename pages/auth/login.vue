@@ -1,11 +1,12 @@
 <template>
-	<div class="background-radial-gradient overflow-hidden">
+	<div id="authpage" class="background-radial-gradient overflow-hidden">
 		<div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
 			<div class="row gx-lg-5 align-items-center mb-5">
 				<div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-					<h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-						Nebulla AI Ecosystem <br />
-						<span style="color: hsl(218, 81%, 75%)">for your life development</span>
+					<h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%);">
+						<span style="font-size: 60px;font-weight: 900;">Nebula AI</span><br />
+						<span style="color: rgba(62, 31, 49,1.0);font-size: 30px;">Beyond the Stars, at Your Service:
+							Harness the Nebula's Wisdom with Our AI System.</span>
 					</h1>
 					<!--<p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
 						
@@ -21,18 +22,15 @@
 							<form method="post" @submit.prevent="handleSubmit">
 								<!-- username input -->
 								<div class="form-outline mb-4">
-									<label class="form-label" for="form3username">username</label>
+									<label class="form-label" for="form3username"
+										style="color: rgb(211, 218, 206);">username</label>
 									<div class="position-relative">
 										<input v-model="formData.username" type="text" id="form3username"
-											name="username" 
-											placeholder="e.g. example" 
-											class="form-control"
-											@change="v$.username.$touch" 
-											:class="{
+											name="username" placeholder="e.g. example" class="form-control"
+											@change="v$.username.$touch" :class="{
 												'border border-danger focus-border-danger': v$.username.$error,
 												'border-[#42d392] ': !v$.username.$invalid,
-											}" 
-										/>
+											}" />
 										<i v-if="!v$.username.$invalid || v$.username.$error"
 											style="top: 0;right: -22px;"
 											:class="`bi ${!v$.username.$error ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} ${!v$.username.$invalid ? 'text-success' :'text-warning'}  fs-5`"
@@ -46,7 +44,8 @@
 
 								<!-- Password input -->
 								<div class="form-outline mb-4">
-									<label class="form-label" for="form3Pass">Password</label>
+									<label class="form-label" for="form3Pass"
+										style="color: rgb(211, 218, 206);">Password</label>
 
 									<div class="position-relative">
 										<input v-model="formData.password" type="password" id="form3Pass"
@@ -67,12 +66,14 @@
 								</div>
 
 								<!-- Submit button -->
-								<button type="submit" class="btn btn-primary btn-block mb-4">
+								<button type="submit" class="btn btn-block mb-4"
+									style="background-color: rgb(62, 31, 49);">
 									login
 								</button>
 
-								<div class="authinticatin-role mb-4">
-									<span>i not have account!,i need to - </span> <a href="registration"> Sign up ?</a>
+								<div class="authinticatin-role mb-4" style="color: rgb(211, 218, 206);">
+									<span>I don`t have an account - </span> <a href="registration"
+										style="color: rgb(62, 31, 49);"> Sign up ?</a>
 								</div>
 
 								<!-- Register buttons -->

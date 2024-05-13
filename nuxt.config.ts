@@ -9,6 +9,12 @@ export default defineNuxtConfig({
       },
 
   },
+  spaLoadingTemplate: false,
+  loadingIndicator: {
+  name: 'circle',
+  color: '#3B8070',
+  background: 'white'
+},
   ssr: false,
   vite: {
     server: {

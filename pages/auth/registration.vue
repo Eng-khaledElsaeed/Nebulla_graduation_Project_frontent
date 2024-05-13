@@ -1,11 +1,12 @@
 <template>
-	<section class="background-radial-gradient overflow-hidden">
+	<div id="authpage" class="background-radial-gradient overflow-hidden">
 		<div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
 			<div class="row gx-lg-5 align-items-center mb-5">
 				<div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-					<h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-						Nebulla AI Ecosystem <br />
-						<span style="color: hsl(218, 81%, 75%)">for your life development</span>
+					<h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%);font-weight:bold;">
+						<span>Nebula AI</span><br />
+						<span style="color: rgba(62, 31, 49,1.0);font-size: 30px;">Beyond the Stars, at Your Service:
+							Harness the Nebula's Wisdom with Our AI System.</span>
 					</h1>
 					<!--<p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
 						
@@ -154,12 +155,14 @@
 								</div>
 
 								<!-- Submit button -->
-								<button type="submit" class="btn btn-primary btn-block mb-4">
+								<button type="submit" class="btn btn-primary btn-block mb-4"
+									style="background-color: rgb(62, 31, 49);">
 									Sign up
 								</button>
 
 								<div class="authinticatin-role mb-4">
-									<span>i have account,i need to - </span> <a href="login"> login ?</a>
+									<span>I have an account, I need to - </span> <a href="login"
+										style="color: rgb(62, 31, 49);"> login ?</a>
 								</div>
 
 								<!-- Register buttons -->
@@ -170,7 +173,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 </template>
 
 <script setup>
