@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  loading:'~/components/loading/Preloader.vue',
   runtimeConfig: {
     public: {
       jsonData :true
@@ -11,10 +12,10 @@ export default defineNuxtConfig({
   },
   spaLoadingTemplate: false,
   loadingIndicator: {
-  name: 'circle',
-  color: '#3B8070',
-  background: 'white'
-},
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
+  },
   ssr: false,
   vite: {
     server: {
